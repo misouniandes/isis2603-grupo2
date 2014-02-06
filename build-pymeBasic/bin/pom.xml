@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>co.edu.uniandes.csw.spl</groupId>
+  <artifactId>build-pymeBasic</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>build-product</name>
+    <modules>
+    	  <module>../pyme.web</module>
+    	  <module>../pyme.service.subsystem</module>
+		  <module>../pyme.service.subsystem.web</module>
+    	  <module>../product.web</module>
+    	  <module>../product.service.subsystem</module>
+		  <module>../product.service.subsystem.web</module>
+    	  <module>../client.web</module>
+    	  <module>../client.service.subsystem</module>
+		  <module>../client.service.subsystem.web</module>
+    </modules>
+</project>

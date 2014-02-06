@@ -1,0 +1,48 @@
+<script type="text/template" id="pymeList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>name</th>
+		 <th>description</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(pymes, function(pyme) { %>
+    <tr>
+		<td><%= htmlEncode(pyme.getDisplay('name')) %></td>
+		<td><%= htmlEncode(pyme.getDisplay('description')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-pyme-edit',{id:<%= pyme.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-pyme-delete',{id:<%= pyme.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="pyme">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-pymeForm">
+    <% if(pyme.id) {%>
+    <input type="hidden" name="id" value="<%= pyme.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= pyme.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="description">description</label>
+    	<input type="text" class="form-control" id="description" name="description" placeholder="Enter value" value="<%= pyme.get('description') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 
