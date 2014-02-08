@@ -6,6 +6,7 @@
     <tr>
 		 <th>name</th>
 		 <th>cc</th>
+                 <th>e-mail</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -14,6 +15,7 @@
     <tr>
 		<td><%= htmlEncode(client.getDisplay('name')) %></td>
 		<td><%= htmlEncode(client.getDisplay('cc')) %></td>
+                <td><%= htmlEncode(client.getDisplay('e-mail'))</td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-client-edit',{id:<%= client.id %>}); return false" >Edit</a> |
@@ -43,10 +45,19 @@
 		<label for="cc">cc</label>
     	<input type="text" class="form-control" id="cc" name="cc" placeholder="Enter value" value="<%= client.get('cc') %>"/>	
 		</div>
+                <div class="form-group" >
+		<label for="e-mail">e-mail</label>
+    	<input type="text" class="form-control" id="e-mail" name="e-mail" placeholder="Enter e-mail" value="<%= client.get('e-mail') %>"/>	
+		</div>
+                <div class="form-group" >
+		<label for="password">password</label>
+    	<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="<%= client.get('password') %>"/>	
+		</div>
     </form>
     </div>
 </script> 
 
+<!-- Andrés RF5-->
 <script type="text/template" id ="client-search">
     <div class="form-group">
         <form role="form" id="<%= componentId %>-clientForm">
