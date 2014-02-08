@@ -1,4 +1,4 @@
-<script type="text/template" id="productList">
+ <script type="text/template" id="productList">
     <div class="panel panel-default">
     <!-- Default panel contents -->
     <table class="table striped">
@@ -6,15 +6,25 @@
     <tr>
 		 <th>name</th>
 		 <th>value</th>
+                 
+                 <!--Modificación de código. RF2 -->
+                <th>image</th>
     <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% _.each(products, function(product) { %>
     <tr>
+                <td><%= htmlEncode(product.getDisplay('image')) %></td>
 		<td><%= htmlEncode(product.getDisplay('name')) %></td>
 		<td><%= htmlEncode(product.getDisplay('value')) %></td>
+                
+                <!-- RF1.-->
+                <td><%= htmlEncode(product.getDisplay('descripcion')) %></td>
     <td>
+    <!--Para el RF2 -->
+    <a onclick="Backbone.trigger('<%= componentId %>-product-view-image',{id:<%= product.id %>})">View Image</a></td>
+    <!--Fin del RF2 -->
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-product-edit',{id:<%= product.id %>}); return false" >Edit</a> |
 	<% } %> 
@@ -43,6 +53,35 @@
 		<label for="value">value</label>
     	<input type="text" class="form-control" id="value" name="value" placeholder="Enter value" value="<%= product.get('value') %>"/>	
 		</div>
+                
+                <!--RF1. Jessica. Modificar posteriormente -->
+                <div class="form-group" >
+		<label for="name">atributo1</label>
+    	<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Enter Description" value="<%= product.get('descripcion') %>"/>	
+		</div>
+                <!--Fin de RF1 -->
+                
+                <!--RF2. Jessica -->
+                <div class="form-group" >
+		<label for="image">image</label>
+           <input type="button" class="form-control" id="image" name="image" placeholder="Image" value="<%= product.get('image') %>"/>	
+		</div>
+                <!--Fin de RF2 -->
     </form>
     </div>
-</script> 
+</script>
+
+<!--RF4-->
+
+<script type="text/template" id ="product-search">
+    <div class="form-group">
+<form role="form" id="<%= componentId %>-productForm">
+<div class="form-group">
+<label for="query"> search </label>
+<input type="text" class="form-control" id="query" name="query" placeholder="Enter search terms">
+</div>
+<div class="form-group">
+<input type="submit" class="btn btn-default" value="SEARCH">
+</div>
+</div>
+</script>
