@@ -15,7 +15,7 @@
     <tr>
 		<td><%= htmlEncode(client.getDisplay('name')) %></td>
 		<td><%= htmlEncode(client.getDisplay('cc')) %></td>
-                <td><%= htmlEncode(client.getDisplay('e-mail'))</td>
+                <td><%= htmlEncode(client.getDisplay('e-mail'))%></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-client-edit',{id:<%= client.id %>}); return false" >Edit</a> |
@@ -60,13 +60,14 @@
 <!-- Andrés RF5-->
 <script type="text/template" id ="client-search">
     <div class="form-group">
-        <form role="form" id="<%= componentId %>-clientForm">
+        <form role="form" id="<%= componentId %>-searchForm">
             <div class="form-group">
                 <label for="query"> search </label>
-                <input type="text" class="form-control" id="query" name="query" placeholder="Enter search terms">
+                <input type="text" class="form-control" id="query" name="query" placeholder="Enter search terms"/>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-default" value="SEARCH">
+                <input type="submit" class="btn btn-default" value="SEARCH"/>
             </div>
+         </form>
     </div>
 </script>
