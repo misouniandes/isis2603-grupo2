@@ -7,6 +7,9 @@ define(['model/clientModel'], function(clientModel) {
             this.showDelete = true;
             this.editTemplate = _.template($('#client').html());
             this.listTemplate = _.template($('#clientList').html());
+            //----------RF 5----------------------------------------------
+            this.searchTemplate = _.template($('#client-search').html());
+            //------------------------------------------------------------
             if (!options || !options.componentId) {
                 this.componentId = _.random(0, 100) + "";
             }else{
@@ -31,7 +34,20 @@ define(['model/clientModel'], function(clientModel) {
             Backbone.on(this.componentId + '-' + 'client-save', function(params) {
                 self.save(params);
             });
+            //-------------------------RF5---------------------------
+            Backbone.on(this.componentId + '-' + 'client-search', function(params) {
+                self.search(params);
+            })
+            //--------------------------------------------------------
         },
+        
+        //---------------------------RF5----------------------------
+        search: function(params) {
+            var query = $("#query").val();
+            //TODO 
+        },
+        //-----------------------------------------------------------
+        
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-client-create')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-client-create', {view: this});
@@ -150,7 +166,18 @@ define(['model/clientModel'], function(clientModel) {
 				}));
                 self.$el.slideDown("fast");
             });
+        },
+        //-----------------------RF5---------------------------
+        _renderSearch: function() {
+            var self = this;
+            this.$el.slideUp("fast", function() {
+                self.$el.html(self.searchTemplate({componentId: self.componentId
+                
+                                }));
+                self.$el.slideDown("fast");
+            });
         }
+        //------------------------------------------------------
     });
     return App.Controller._ClientController;
 });

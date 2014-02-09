@@ -75,13 +75,14 @@
 
 <script type="text/template" id ="product-search">
     <div class="form-group">
-<form role="form" id="<%= componentId %>-productForm">
-<div class="form-group">
-<label for="query"> search </label>
-<input type="text" class="form-control" id="query" name="query" placeholder="Enter search terms">
-</div>
-<div class="form-group">
-<input type="submit" class="btn btn-default" value="SEARCH">
-</div>
-</div>
+        <form role="form" id="<%= componentId %>-productForm">
+            <div class="form-group">
+                <label for="query"> search </label>
+                <input type="text" class="form-control" id="query" name="query" placeholder="Enter search terms">
+            </div>
+            <div class="form-group">
+                //<input type="submit" class="btn btn-default" value="SEARCH">
+                <a onclick="Backbone.trigger('<%= componentId %>-product-search'); return false" >Search</a>
+            </div>
+    </div>
 </script>
