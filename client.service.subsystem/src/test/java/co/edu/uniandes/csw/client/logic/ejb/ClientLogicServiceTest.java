@@ -68,6 +68,8 @@ public class ClientLogicServiceTest {
 			ClientDTO pdto=new ClientDTO();
 			pdto.setName(generateRandom(String.class));
 			pdto.setCc(generateRandom(String.class));
+                        pdto.setEmail(generateRandom(String.class)+"@gmail.com");
+                        pdto.setPassword(generateRandom(String.class));
 			pdto=clientPersistence.createClient(pdto);
 			data.add(pdto);
 		}
@@ -78,7 +80,8 @@ public class ClientLogicServiceTest {
 		ClientDTO ldto=new ClientDTO();
 		ldto.setName(generateRandom(String.class));
 		ldto.setCc(generateRandom(String.class));
-		
+		ldto.setEmail(generateRandom(String.class)+"@gmail.com");
+                ldto.setPassword(generateRandom(String.class));
 		
 		ClientDTO result=clientLogicService.createClient(ldto);
 		
@@ -88,6 +91,8 @@ public class ClientLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
 		Assert.assertEquals(ldto.getCc(), pdto.getCc());	
+                Assert.assertEquals(ldto.getEmail(), pdto.getEmail());
+                Assert.assertEquals(ldto.getPassword(), pdto.getPassword());
 	}
 	
 	@Test
@@ -112,6 +117,8 @@ public class ClientLogicServiceTest {
         Assert.assertNotNull(ldto);
 		Assert.assertEquals(pdto.getName(), ldto.getName());
 		Assert.assertEquals(pdto.getCc(), ldto.getCc());
+                Assert.assertEquals(pdto.getEmail(), ldto.getEmail());
+                Assert.assertEquals(pdto.getPassword(), ldto.getPassword());
         
 	}
 	
@@ -131,7 +138,8 @@ public class ClientLogicServiceTest {
 		ldto.setId(pdto.getId());
 		ldto.setName(generateRandom(String.class));
 		ldto.setCc(generateRandom(String.class));
-		
+                ldto.setEmail(generateRandom(String.class)+"@gmail.com");
+                ldto.setPassword(generateRandom(String.class));
 		
 		clientLogicService.updateClient(ldto);
 		
@@ -140,6 +148,8 @@ public class ClientLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), resp.getName());	
 		Assert.assertEquals(ldto.getCc(), resp.getCc());	
+                Assert.assertEquals(ldto.getEmail(), resp.getEmail());	
+                Assert.assertEquals(ldto.getPassword(), resp.getPassword());	
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

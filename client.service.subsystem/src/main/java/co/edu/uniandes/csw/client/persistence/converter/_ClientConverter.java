@@ -16,6 +16,8 @@ public abstract class _ClientConverter {
 				dto.setId(entity.getId());
 				dto.setName(entity.getName());
 				dto.setCc(entity.getCc());
+                                dto.setEmail(entity.getEmail());
+                                dto.setPassword(entity.getPassword());
 			return dto;
 		}else{
 			return null;
@@ -28,6 +30,8 @@ public abstract class _ClientConverter {
 			entity.setId(dto.getId());
 			entity.setName(dto.getName());
 			entity.setCc(dto.getCc());
+                        entity.setEmail(dto.getEmail());
+                        entity.setPassword(dto.getPassword());
 			return entity;
 		}else {
 			return null;

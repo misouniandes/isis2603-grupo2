@@ -11,7 +11,7 @@ public abstract class _ClientDTO {
 	private Long id;
 	private String name;
 	private String cc;
-
+        
 	public Long getId() {
 		return id;
 	}
@@ -33,5 +33,5 @@ public abstract class _ClientDTO {
 	public void setCc(String cc) {
 		this.cc = cc;
 	}
-	
+       
 }
