@@ -109,6 +109,17 @@ public class ClientLogicServiceTest {
             Assert.assertTrue(found);
         }
 	}
+        @Test
+        public void searchClientTest()
+        {
+            ClientDTO pdto=data.get(0);
+	    List<ClientDTO> ldto=clientLogicService.searchClients(pdto.getName());
+             Assert.assertNotNull(ldto);
+		Assert.assertEquals(pdto.getName(), ldto.get(0).getName());
+		Assert.assertEquals(pdto.getCc(), ldto.get(0).getCc());
+                Assert.assertEquals(pdto.getEmail(), ldto.get(0).getEmail());
+                Assert.assertEquals(pdto.getPassword(), ldto.get(0).getPassword());
+        }
 	
 	@Test
 	public void getClientTest(){

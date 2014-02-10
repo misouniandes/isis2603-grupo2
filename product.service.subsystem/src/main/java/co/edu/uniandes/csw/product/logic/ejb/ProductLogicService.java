@@ -9,10 +9,16 @@ import javax.inject.Inject;
 import javax.enterprise.inject.Default;
 
 import co.edu.uniandes.csw.product.logic.api.IProductLogicService;
+import co.edu.uniandes.csw.product.logic.dto.ProductDTO;
+import java.util.List;
 
 @Default
 @Stateless
 @LocalBean
 public class ProductLogicService extends _ProductLogicService implements IProductLogicService {
+
+    public List<ProductDTO> searchProducts(String key) {
+        return super.persistance.searchProducts(key);
+    }
 
 }

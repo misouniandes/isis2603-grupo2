@@ -68,6 +68,8 @@ public class PymeLogicServiceTest {
 			PymeDTO pdto=new PymeDTO();
 			pdto.setName(generateRandom(String.class));
 			pdto.setDescription(generateRandom(String.class));
+                        pdto.setDirContacto(generateRandom(String.class));
+                        pdto.setEmail(generateRandom(String.class));
 			pdto=pymePersistence.createPyme(pdto);
 			data.add(pdto);
 		}
@@ -78,7 +80,8 @@ public class PymeLogicServiceTest {
 		PymeDTO ldto=new PymeDTO();
 		ldto.setName(generateRandom(String.class));
 		ldto.setDescription(generateRandom(String.class));
-		
+		ldto.setDirContacto(generateRandom(String.class));
+                ldto.setEmail(generateRandom(String.class));
 		
 		PymeDTO result=pymeLogicService.createPyme(ldto);
 		
@@ -88,6 +91,8 @@ public class PymeLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
 		Assert.assertEquals(ldto.getDescription(), pdto.getDescription());	
+                Assert.assertEquals(ldto.getDirContacto(), pdto.getDirContacto());
+                Assert.assertEquals(ldto.getEmail(), pdto.getEmail());
 	}
 	
 	@Test
@@ -112,6 +117,8 @@ public class PymeLogicServiceTest {
         Assert.assertNotNull(ldto);
 		Assert.assertEquals(pdto.getName(), ldto.getName());
 		Assert.assertEquals(pdto.getDescription(), ldto.getDescription());
+                Assert.assertEquals(pdto.getEmail(), ldto.getEmail());
+                Assert.assertEquals(pdto.getDirContacto(), ldto.getDirContacto());
         
 	}
 	
@@ -131,7 +138,8 @@ public class PymeLogicServiceTest {
 		ldto.setId(pdto.getId());
 		ldto.setName(generateRandom(String.class));
 		ldto.setDescription(generateRandom(String.class));
-		
+		ldto.setDirContacto(generateRandom(String.class));
+                ldto.setEmail(generateRandom(String.class));
 		
 		pymeLogicService.updatePyme(ldto);
 		
@@ -140,6 +148,8 @@ public class PymeLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), resp.getName());	
 		Assert.assertEquals(ldto.getDescription(), resp.getDescription());	
+                Assert.assertEquals(ldto.getEmail(), resp.getEmail());
+                Assert.assertEquals(ldto.getDirContacto(), resp.getDirContacto());               
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

@@ -73,6 +73,8 @@ public class ProductPersistenceTest {
 			ProductEntity entity=new ProductEntity();
 			entity.setName(generateRandom(String.class));
 			entity.setValue(generateRandom(Long.class));
+                        entity.setURLImagen(generateRandom(String.class));
+                        entity.setDescripcion(generateRandom(String.class));
 			em.persist(entity);
 			data.add(entity);
 		}
@@ -83,7 +85,8 @@ public class ProductPersistenceTest {
 		ProductDTO dto=new ProductDTO();
 		dto.setName(generateRandom(String.class));
 		dto.setValue(generateRandom(Long.class));
-		
+		dto.setURLImagen(generateRandom(String.class));
+                dto.setDescripcion(generateRandom(String.class));
 		
 		ProductDTO result=productPersistence.createProduct(dto);
 		
@@ -93,6 +96,8 @@ public class ProductPersistenceTest {
 		
 		Assert.assertEquals(dto.getName(), entity.getName());	
 		Assert.assertEquals(dto.getValue(), entity.getValue());	
+                Assert.assertEquals(dto.getURLImagen(), entity.getURLImagen());	
+                Assert.assertEquals(dto.getDescripcion(), entity.getDescripcion());	
 	}
 	
 	@Test
@@ -117,9 +122,23 @@ public class ProductPersistenceTest {
         Assert.assertNotNull(dto);
 		Assert.assertEquals(entity.getName(), dto.getName());
 		Assert.assertEquals(entity.getValue(), dto.getValue());
+                Assert.assertEquals(entity.getURLImagen(), dto.getURLImagen());
+                Assert.assertEquals(entity.getDescripcion(), dto.getDescripcion());
         
 	}
 	
+        @Test
+        public void searchProductTest()
+        {
+            ProductEntity entity=data.get(0);
+		ProductDTO dto=productPersistence.searchProducts(entity.getName()).get(0);
+        Assert.assertNotNull(dto);
+		Assert.assertEquals(entity.getName(), dto.getName());
+		Assert.assertEquals(entity.getValue(), dto.getValue());
+                Assert.assertEquals(entity.getURLImagen(), dto.getURLImagen());
+                Assert.assertEquals(entity.getDescripcion(), dto.getDescripcion());
+        }
+        
 	@Test
 	public void deleteProductTest(){
 		ProductEntity entity=data.get(0);
@@ -135,7 +154,8 @@ public class ProductPersistenceTest {
 		ProductDTO dto=new ProductDTO();
 		dto.setId(entity.getId());
 		dto.setName(generateRandom(String.class));
-		dto.setValue(generateRandom(Long.class));
+		dto.setURLImagen(generateRandom(String.class));
+                dto.setDescripcion(generateRandom(String.class));
 		
 		
 		productPersistence.updateProduct(dto);
@@ -145,6 +165,8 @@ public class ProductPersistenceTest {
 		
 		Assert.assertEquals(dto.getName(), resp.getName());	
 		Assert.assertEquals(dto.getValue(), resp.getValue());	
+                Assert.assertEquals(dto.getURLImagen(),resp.getURLImagen());
+                Assert.assertEquals(dto.getDescripcion(),resp.getDescripcion());
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

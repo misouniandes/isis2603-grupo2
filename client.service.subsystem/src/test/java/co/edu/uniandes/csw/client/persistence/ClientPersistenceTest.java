@@ -114,7 +114,19 @@ public class ClientPersistenceTest {
             Assert.assertTrue(found);
         }
 	}
-	
+        
+	@Test
+	public void searchClientsTest(){
+		ClientEntity entity=data.get(0);
+		ClientDTO dto=clientPersistence.searchClients(entity.getName()).get(0);
+        Assert.assertNotNull(dto);
+		Assert.assertEquals(entity.getName(), dto.getName());
+		Assert.assertEquals(entity.getCc(), dto.getCc());
+                Assert.assertEquals(entity.getEmail(), dto.getEmail());
+                Assert.assertEquals(entity.getPassword(), dto.getPassword());
+        
+	}
+        
 	@Test
 	public void getClientTest(){
 		ClientEntity entity=data.get(0);

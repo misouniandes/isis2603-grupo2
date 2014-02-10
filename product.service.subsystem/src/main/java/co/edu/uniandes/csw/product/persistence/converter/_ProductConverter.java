@@ -16,6 +16,8 @@ public abstract class _ProductConverter {
 				dto.setId(entity.getId());
 				dto.setName(entity.getName());
 				dto.setValue(entity.getValue());
+                                dto.setDescripcion(entity.getDescripcion());
+                                dto.setURLImagen(entity.getURLImagen());
 			return dto;
 		}else{
 			return null;
@@ -28,6 +30,8 @@ public abstract class _ProductConverter {
 			entity.setId(dto.getId());
 			entity.setName(dto.getName());
 			entity.setValue(dto.getValue());
+                        entity.setURLImagen(dto.getURLImagen());
+                        entity.setDescripcion(dto.getDescripcion());
 			return entity;
 		}else {
 			return null;

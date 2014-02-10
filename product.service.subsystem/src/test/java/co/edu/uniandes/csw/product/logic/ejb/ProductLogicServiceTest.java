@@ -68,6 +68,8 @@ public class ProductLogicServiceTest {
 			ProductDTO pdto=new ProductDTO();
 			pdto.setName(generateRandom(String.class));
 			pdto.setValue(generateRandom(Long.class));
+                        pdto.setURLImagen(generateRandom(String.class));
+                        pdto.setDescripcion(generateRandom(String.class));
 			pdto=productPersistence.createProduct(pdto);
 			data.add(pdto);
 		}
@@ -78,7 +80,8 @@ public class ProductLogicServiceTest {
 		ProductDTO ldto=new ProductDTO();
 		ldto.setName(generateRandom(String.class));
 		ldto.setValue(generateRandom(Long.class));
-		
+		ldto.setURLImagen(generateRandom(String.class));
+                ldto.setDescripcion(generateRandom(String.class));
 		
 		ProductDTO result=productLogicService.createProduct(ldto);
 		
@@ -88,6 +91,8 @@ public class ProductLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
 		Assert.assertEquals(ldto.getValue(), pdto.getValue());	
+                Assert.assertEquals(ldto.getURLImagen(), pdto.getURLImagen());	
+                Assert.assertEquals(ldto.getDescripcion(), pdto.getDescripcion());	
 	}
 	
 	@Test
@@ -112,9 +117,23 @@ public class ProductLogicServiceTest {
         Assert.assertNotNull(ldto);
 		Assert.assertEquals(pdto.getName(), ldto.getName());
 		Assert.assertEquals(pdto.getValue(), ldto.getValue());
+                Assert.assertEquals(ldto.getURLImagen(), pdto.getURLImagen());	
+                Assert.assertEquals(ldto.getDescripcion(), pdto.getDescripcion());	
         
 	}
-	
+        
+	@Test
+        public void searchProductsTest()
+        {
+            ProductDTO pdto=data.get(0);
+		ProductDTO ldto=productLogicService.searchProducts(pdto.getName()).get(0);
+        Assert.assertNotNull(ldto);
+		Assert.assertEquals(pdto.getName(), ldto.getName());
+		Assert.assertEquals(pdto.getValue(), ldto.getValue());
+                Assert.assertEquals(ldto.getURLImagen(), pdto.getURLImagen());	
+                Assert.assertEquals(ldto.getDescripcion(), pdto.getDescripcion());
+        }
+                
 	@Test
 	public void deleteProductTest(){
 		ProductDTO pdto=data.get(0);
@@ -131,6 +150,8 @@ public class ProductLogicServiceTest {
 		ldto.setId(pdto.getId());
 		ldto.setName(generateRandom(String.class));
 		ldto.setValue(generateRandom(Long.class));
+                ldto.setURLImagen(generateRandom(String.class));
+                ldto.setDescripcion(generateRandom(String.class));
 		
 		
 		productLogicService.updateProduct(ldto);
@@ -140,6 +161,8 @@ public class ProductLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), resp.getName());	
 		Assert.assertEquals(ldto.getValue(), resp.getValue());	
+                Assert.assertEquals(ldto.getURLImagen(), resp.getURLImagen());
+                Assert.assertEquals(ldto.getDescripcion(), resp.getDescripcion());
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){
