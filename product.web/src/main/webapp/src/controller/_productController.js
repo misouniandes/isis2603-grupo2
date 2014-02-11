@@ -7,9 +7,6 @@ define(['model/productModel'], function(productModel) {
             this.showDelete = true;
             this.editTemplate = _.template($('#product').html());
             this.listTemplate = _.template($('#productList').html());
-            //-------------------------RF5---------------------------------
-            this.searchTemplate = _.template($('#product-search').html());
-            //-------------------------------------------------------------
             if (!options || !options.componentId) {
                 this.componentId = _.random(0, 100) + "";
             }else{
@@ -37,20 +34,9 @@ define(['model/productModel'], function(productModel) {
             Backbone.on(this.componentId + '-' + 'product-view-image', function(params) {
                 self.viewImage(params);
             });
-            //-------------------------RF5---------------------------
-            Backbone.on(this.componentId + '-' + 'product-search', function(params) {
-                self.search(params);
-            })
-            //--------------------------------------------------------
         },
         
-        //---------------------------RF5----------------------------
-        search: function(params) {
-            var query = $("#query").val();
-            //TODO 
-        },
-        //-----------------------------------------------------------
-        
+            
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-product-create')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-product-create', {view: this});
@@ -171,15 +157,6 @@ define(['model/productModel'], function(productModel) {
             });
         },
         
-        _renderSearch: function() {
-            var self = this;
-            this.$el.slideUp("fast", function() {
-                self.$el.html(self.searchTemplate({componentId: self.componentId
-                
-                                }));
-                self.$el.slideDown("fast");
-            });
-        }
     });
     return App.Controller._ProductController;
 });
