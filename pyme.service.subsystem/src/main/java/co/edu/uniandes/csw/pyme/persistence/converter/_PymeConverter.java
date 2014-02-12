@@ -15,9 +15,8 @@ public abstract class _PymeConverter {
 			PymeDTO dto = new PymeDTO();
 				dto.setName(entity.getName());
 				dto.setId(entity.getId());
-				dto.setDescription(entity.getDescription());
-                                dto.setDirContacto(entity.getDirContacto());
-                                dto.setEmail(entity.getEmail());
+                                dto.setDescription(entity.getDescription());
+                          
 			return dto;
 		}else{
 			return null;
@@ -29,8 +28,7 @@ public abstract class _PymeConverter {
 			PymeEntity entity=new PymeEntity();
 			entity.setName(dto.getName());
 			entity.setId(dto.getId());
-			entity.setDescription(dto.getDescription());
-                        entity.setDirContacto(dto.getDirContacto());
+                        entity.setDescription(dto.getDescription());
 			return entity;
 		}else {
 			return null;

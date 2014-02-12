@@ -16,8 +16,6 @@ public abstract class _ClientConverter {
 				dto.setId(entity.getId());
 				dto.setName(entity.getName());
 				dto.setCc(entity.getCc());
-                                dto.setEmail(entity.getEmail());
-                                dto.setPassword(entity.getPassword());
 			return dto;
 		}else{
 			return null;
