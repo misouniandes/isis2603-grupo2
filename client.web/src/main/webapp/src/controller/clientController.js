@@ -12,8 +12,19 @@ define(['controller/_clientController'], function() {
         
         //---------------------------RF5----------------------------
         search: function(params) {
-            var query = $("#query").val();
-            //TODO 
+            var self = this;
+            var model = $('#' + this.componentId + '-searchForm').serializeObject();
+            this.currentClientModel.set(model);
+            App.Delegate.ClientDelegate.search(self.currentClientModel, function(data) {
+                self.clientModelList=new App.Model.ClientList();
+                _.each(data,function(d){
+                    var model=new App.Model.ClientModel(d);
+                    self.clientModelList.models.push(model);
+                });
+                self._renderSearch(params);
+            }, function(data) {
+                Backbone.trigger(self.componentId + '-' + 'error', {event: 'client-search', view: self, id: '', data: data, error: 'Error in client search'});
+            });
         },
         //-----------------------------------------------------------
 

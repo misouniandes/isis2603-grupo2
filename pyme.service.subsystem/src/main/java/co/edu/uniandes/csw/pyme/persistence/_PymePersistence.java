@@ -32,7 +32,7 @@ public abstract class _PymePersistence implements _IPymePersistence {
 	public PymeDTO getPyme(Long id) {
 		return PymeConverter.entity2PersistenceDTO(entityManager.find(PymeEntity.class, id));
 	}
-
+ 
 	public void deletePyme(Long id) {
 		PymeEntity entity=entityManager.find(PymeEntity.class, id);
 		entityManager.remove(entity);
