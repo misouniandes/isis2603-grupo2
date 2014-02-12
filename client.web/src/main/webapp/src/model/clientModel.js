@@ -1,6 +1,9 @@
 define(['model/_clientModel'], function() {
     App.Model.ClientModel = App.Model._ClientModel.extend({
-
+         defaults: {
+             'e-mail' : '',
+             'password' : ''
+         }
     });
 
     App.Model.ClientList = App.Model._ClientList.extend({
