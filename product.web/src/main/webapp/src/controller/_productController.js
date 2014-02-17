@@ -31,12 +31,7 @@ define(['model/productModel'], function(productModel) {
             Backbone.on(this.componentId + '-' + 'product-save', function(params) {
                 self.save(params);
             });
-            Backbone.on(this.componentId + '-' + 'product-view-image', function(params) {
-                self.viewImage(params);
-            });
         },
-        
-            
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-product-create')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-product-create', {view: this});
@@ -155,8 +150,7 @@ define(['model/productModel'], function(productModel) {
 				}));
                 self.$el.slideDown("fast");
             });
-        },
-        
+        }
     });
     return App.Controller._ProductController;
 });

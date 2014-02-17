@@ -126,18 +126,7 @@ public class ProductPersistenceTest {
                 Assert.assertEquals(entity.getDescripcion(), dto.getDescripcion());
         
 	}
-	
-        @Test
-        public void searchProductTest()
-        {
-            ProductEntity entity=data.get(0);
-		ProductDTO dto=productPersistence.searchProducts(entity.getName()).get(0);
-        Assert.assertNotNull(dto);
-		Assert.assertEquals(entity.getName(), dto.getName());
-		Assert.assertEquals(entity.getValue(), dto.getValue());
-                Assert.assertEquals(entity.getURLImagen(), dto.getURLImagen());
-                Assert.assertEquals(entity.getDescripcion(), dto.getDescripcion());
-        }
+
         
 	@Test
 	public void deleteProductTest(){

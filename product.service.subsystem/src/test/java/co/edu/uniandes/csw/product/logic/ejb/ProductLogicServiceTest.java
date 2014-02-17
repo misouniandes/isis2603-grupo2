@@ -121,19 +121,7 @@ public class ProductLogicServiceTest {
                 Assert.assertEquals(ldto.getDescripcion(), pdto.getDescripcion());	
         
 	}
-        
-	@Test
-        public void searchProductsTest()
-        {
-            ProductDTO pdto=data.get(0);
-		ProductDTO ldto=productLogicService.searchProducts(pdto.getName()).get(0);
-        Assert.assertNotNull(ldto);
-		Assert.assertEquals(pdto.getName(), ldto.getName());
-		Assert.assertEquals(pdto.getValue(), ldto.getValue());
-                Assert.assertEquals(ldto.getURLImagen(), pdto.getURLImagen());	
-                Assert.assertEquals(ldto.getDescripcion(), pdto.getDescripcion());
-        }
-                
+     
 	@Test
 	public void deleteProductTest(){
 		ProductDTO pdto=data.get(0);

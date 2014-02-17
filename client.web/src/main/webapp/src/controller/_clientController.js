@@ -6,7 +6,7 @@ define(['model/clientModel'], function(clientModel) {
             this.showEdit = true;
             this.showDelete = true;
             this.editTemplate = _.template($('#client').html());
-            this.listTemplate = _.template($('#clientList').html());            
+            this.listTemplate = _.template($('#clientList').html());
             if (!options || !options.componentId) {
                 this.componentId = _.random(0, 100) + "";
             }else{
@@ -32,7 +32,6 @@ define(['model/clientModel'], function(clientModel) {
                 self.save(params);
             });
         },
-        
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-client-create')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-client-create', {view: this});
@@ -151,7 +150,7 @@ define(['model/clientModel'], function(clientModel) {
 				}));
                 self.$el.slideDown("fast");
             });
-        },
+        }
     });
     return App.Controller._ClientController;
 });

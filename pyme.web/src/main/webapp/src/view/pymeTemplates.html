@@ -6,6 +6,8 @@
     <tr>
 		 <th>name</th>
 		 <th>description</th>
+                 <th>email</th>
+                 <th>dirContacto</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -14,10 +16,8 @@
     <tr>
 		<td><%= htmlEncode(pyme.getDisplay('name')) %></td>
 		<td><%= htmlEncode(pyme.getDisplay('description')) %></td>
-                
-                <!-- RF1. Modificar posteriormente -->
-                <td><%= htmlEncode(pyme.getDisplay('emailcontacto')) %></td>
-                <td><%= htmlEncode(product.getDisplay('direccion')) %></td>
+                <td><%= htmlEncode(pyme.getDisplay('email')) %></td>
+                <td><%= htmlEncode(pyme.getDisplay('dirContacto')) %></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-pyme-edit',{id:<%= pyme.id %>}); return false" >Edit</a> |
@@ -47,17 +47,15 @@
 		<label for="description">description</label>
     	<input type="text" class="form-control" id="description" name="description" placeholder="Enter value" value="<%= pyme.get('description') %>"/>	
 		</div>
-                
-                   <!--RF1. Jessica. Modificar posteriormente -->
                 <div class="form-group" >
-		<label for="name">emailcontacto</label>
-    	<input type="text" class="form-control" id="emailcontacto" name="emailcontacto" placeholder="Enter Contact E-mail" value="<%= pyme.get('emailcontacto') %>"/>	
+            	<label for="email">email</label>
+    	<input type="text" class="form-control" id="email" name="email" placeholder="Enter value" value="<%= pyme.get('email') %>"/>	
 		</div>
-		<div class="form-group" >
-		<label for="value">direccion</label>
-    	<input type="text" class="form-control" id="direccion" name="direccion" placeholder="Enter Address" value="<%= pyme.get(direccion') %>"/>	
+                <div class="form-group" >
+		<label for="dirContacto">dirContacto</label>
+    	<input type="text" class="form-control" id="dirContacto" name="dirContacto" placeholder="Enter value" value="<%= pyme.get('dirContacto') %>"/>	
 		</div>
-                <!--Fin de RF1 -->
+        
     </form>
     </div>
 </script> 

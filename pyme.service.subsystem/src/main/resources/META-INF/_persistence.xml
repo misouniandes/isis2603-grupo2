@@ -3,9 +3,10 @@
   <persistence-unit name="PymePU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>jdbcISIS4719</jta-data-source>
+    <class>co.edu.uniandes.csw.pyme.persistence.entity.PymeEntity</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="eclipselink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>
-</persistence> 
+</persistence>
