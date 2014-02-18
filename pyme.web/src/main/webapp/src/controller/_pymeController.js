@@ -31,6 +31,9 @@ define(['model/pymeModel'], function(pymeModel) {
             Backbone.on(this.componentId + '-' + 'pyme-save', function(params) {
                 self.save(params);
             });
+            if(self.postInit){
+                self.postInit();
+            }
         },
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-pyme-create')) {

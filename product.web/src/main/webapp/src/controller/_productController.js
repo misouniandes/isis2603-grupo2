@@ -31,6 +31,9 @@ define(['model/productModel'], function(productModel) {
             Backbone.on(this.componentId + '-' + 'product-save', function(params) {
                 self.save(params);
             });
+             if(self.postInit){
+                self.postInit();
+            }
         },
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-product-create')) {

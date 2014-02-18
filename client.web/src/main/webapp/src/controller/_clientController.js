@@ -31,6 +31,9 @@ define(['model/clientModel'], function(clientModel) {
             Backbone.on(this.componentId + '-' + 'client-save', function(params) {
                 self.save(params);
             });
+            if(self.postInit){
+                self.postInit();
+            }
         },
         create: function() {
             if (App.Utils.eventExists(this.componentId + '-' +'instead-client-create')) {
