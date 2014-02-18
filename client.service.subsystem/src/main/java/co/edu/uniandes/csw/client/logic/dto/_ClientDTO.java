@@ -5,7 +5,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement 
+
 public abstract class _ClientDTO {
 
 	private Long id;

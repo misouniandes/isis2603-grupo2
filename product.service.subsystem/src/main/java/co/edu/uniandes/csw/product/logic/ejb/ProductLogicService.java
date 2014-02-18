@@ -17,8 +17,5 @@ import java.util.List;
 @LocalBean
 public class ProductLogicService extends _ProductLogicService implements IProductLogicService {
 
-    public List<ProductDTO> searchProducts(String key) {
-        return super.persistance.searchProducts(key);
-    }
 
 }

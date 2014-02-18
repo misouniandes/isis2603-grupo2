@@ -4,7 +4,9 @@ define([], function() {
  
 		 'name' : ''
  ,  
-		 'cc' : ''
+		 'cc' : '',
+                 'email':'',
+                 'password':''
         },
         initialize: function() {
         },

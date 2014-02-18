@@ -1,15 +1,18 @@
 
 package co.edu.uniandes.csw.product.logic.dto;
 
-public class ProductDTO extends _ProductDTO {
-    private String URLImagen, descripcion;
+import javax.xml.bind.annotation.XmlRootElement;
 
-    public String getURLImagen() {
-        return URLImagen;
+@XmlRootElement 
+public class ProductDTO extends _ProductDTO {
+    private String imagen, descripcion;
+
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setURLImagen(String URLImagen) {
-        this.URLImagen = URLImagen;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getDescripcion() {

@@ -15,13 +15,6 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class ProductPersistence extends _ProductPersistence  implements IProductPersistence {
 
-    public List<ProductDTO> searchProducts(String key) {
-        List<ProductDTO> lista = super.getProducts();
-        List<ProductDTO> res = new ArrayList<ProductDTO>();
-        for (ProductDTO d:lista)
-                if(d.getName().contains(key))
-                    res.add(d);
-        return res;
-    }
+ 
 
 }

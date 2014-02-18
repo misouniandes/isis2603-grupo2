@@ -21,7 +21,8 @@ public abstract class _ProductService {
 	
 	@POST
 	public ProductDTO createProduct(ProductDTO product){
-		return productLogicService.createProduct(product);
+ 
+            return productLogicService.createProduct(product);
 	}
 	
 	@DELETE

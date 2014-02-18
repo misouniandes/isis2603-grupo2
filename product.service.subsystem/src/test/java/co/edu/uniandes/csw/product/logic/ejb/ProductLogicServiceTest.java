@@ -68,7 +68,7 @@ public class ProductLogicServiceTest {
 			ProductDTO pdto=new ProductDTO();
 			pdto.setName(generateRandom(String.class));
 			pdto.setValue(generateRandom(Long.class));
-                        pdto.setURLImagen(generateRandom(String.class));
+                        pdto.setImagen(generateRandom(String.class));
                         pdto.setDescripcion(generateRandom(String.class));
 			pdto=productPersistence.createProduct(pdto);
 			data.add(pdto);
@@ -80,7 +80,7 @@ public class ProductLogicServiceTest {
 		ProductDTO ldto=new ProductDTO();
 		ldto.setName(generateRandom(String.class));
 		ldto.setValue(generateRandom(Long.class));
-		ldto.setURLImagen(generateRandom(String.class));
+		ldto.setImagen(generateRandom(String.class));
                 ldto.setDescripcion(generateRandom(String.class));
 		
 		ProductDTO result=productLogicService.createProduct(ldto);
@@ -91,7 +91,7 @@ public class ProductLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
 		Assert.assertEquals(ldto.getValue(), pdto.getValue());	
-                Assert.assertEquals(ldto.getURLImagen(), pdto.getURLImagen());	
+                Assert.assertEquals(ldto.getImagen(), pdto.getImagen());	
                 Assert.assertEquals(ldto.getDescripcion(), pdto.getDescripcion());	
 	}
 	
@@ -117,7 +117,7 @@ public class ProductLogicServiceTest {
         Assert.assertNotNull(ldto);
 		Assert.assertEquals(pdto.getName(), ldto.getName());
 		Assert.assertEquals(pdto.getValue(), ldto.getValue());
-                Assert.assertEquals(ldto.getURLImagen(), pdto.getURLImagen());	
+                Assert.assertEquals(ldto.getImagen(), pdto.getImagen());	
                 Assert.assertEquals(ldto.getDescripcion(), pdto.getDescripcion());	
         
 	}
@@ -138,7 +138,7 @@ public class ProductLogicServiceTest {
 		ldto.setId(pdto.getId());
 		ldto.setName(generateRandom(String.class));
 		ldto.setValue(generateRandom(Long.class));
-                ldto.setURLImagen(generateRandom(String.class));
+                ldto.setImagen(generateRandom(String.class));
                 ldto.setDescripcion(generateRandom(String.class));
 		
 		
@@ -149,7 +149,7 @@ public class ProductLogicServiceTest {
 		
 		Assert.assertEquals(ldto.getName(), resp.getName());	
 		Assert.assertEquals(ldto.getValue(), resp.getValue());	
-                Assert.assertEquals(ldto.getURLImagen(), resp.getURLImagen());
+                Assert.assertEquals(ldto.getImagen(), resp.getImagen());
                 Assert.assertEquals(ldto.getDescripcion(), resp.getDescripcion());
 	}
 	

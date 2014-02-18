@@ -12,12 +12,6 @@ import java.util.List;
 @Singleton
 public class ProductMockLogicService extends _ProductMockLogicService implements IProductLogicService {
 
-    public List<ProductDTO> searchProducts(String key) {
-        List<ProductDTO> res = new ArrayList<ProductDTO>();
-        for(ProductDTO d:super.data)
-            if(d.getName().contains(key))
-                res.add(d);
-        return res;
-    }
+ 
 	
 }

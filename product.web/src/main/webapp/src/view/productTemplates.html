@@ -6,7 +6,8 @@
     <tr>
 		 <th>name</th>
 		 <th>value</th>
-    <th>Actions</th>
+                 <th>image</th>
+                 <th>Descripcion</th>
     </tr>
     </thead>
     <tbody>
@@ -14,6 +15,9 @@
     <tr>
 		<td><%= htmlEncode(product.getDisplay('name')) %></td>
 		<td><%= htmlEncode(product.getDisplay('value')) %></td>
+                 <td><a href="<%= product.getDisplay('imagen') %>"><img src="<%= product.getDisplay('imagen') %>" width="70"> </a></td> 
+                <td><%= htmlEncode(product.getDisplay('descripcion')) %></td>
+               
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-product-edit',{id:<%= product.id %>}); return false" >Edit</a> |
@@ -43,6 +47,17 @@
 		<label for="value">value</label>
     	<input type="text" class="form-control" id="value" name="value" placeholder="Enter value" value="<%= product.get('value') %>"/>	
 		</div>
+          <div class="form-group" >
+		<label for="imagen">imagen</label>
+    	<input type="text" class="form-control" id="imagen" name="imagen" placeholder="Enter Image URL" value="<%= product.get('imagen') %>"/>	
+		</div>
+         <div class="form-group" >
+		<label for="descripcion">Descripcion</label>
+    	<input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Enter value" value="<%= product.get('descripcion') %>"/>	
+		</div> 
+
+     
+        
     </form>
     </div>
 </script> 

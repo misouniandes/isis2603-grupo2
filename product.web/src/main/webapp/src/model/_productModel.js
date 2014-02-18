@@ -5,6 +5,9 @@ define([], function() {
 		 'name' : ''
  ,  
 		 'value' : ''
+                 , 'imagen' : ''   
+,
+                 'descripcion' : ''
         },
         initialize: function() {
         },

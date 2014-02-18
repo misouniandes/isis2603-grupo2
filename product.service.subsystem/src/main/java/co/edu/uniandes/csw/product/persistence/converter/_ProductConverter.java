@@ -13,7 +13,9 @@ public abstract class _ProductConverter {
 	public static ProductDTO entity2PersistenceDTO(ProductEntity entity){
 		if (entity != null) {
 			ProductDTO dto = new ProductDTO();
-				dto.setId(entity.getId());
+				dto.setId(entity.getId()); 
+                                dto.setDescripcion(entity.getDescripcion());
+                                dto.setImagen(entity.getImagen());
 				dto.setName(entity.getName());
 				dto.setValue(entity.getValue());
                                
@@ -29,7 +31,8 @@ public abstract class _ProductConverter {
 			entity.setId(dto.getId());
 			entity.setName(dto.getName());
 			entity.setValue(dto.getValue());
-                       
+                        entity.setImagen(dto.getImagen());
+                        entity.setDescripcion(dto.getDescripcion());
 			return entity;
 		}else {
 			return null;

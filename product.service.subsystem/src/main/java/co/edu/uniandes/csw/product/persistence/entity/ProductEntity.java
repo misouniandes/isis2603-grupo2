@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 
 @Entity
 public class ProductEntity extends _ProductEntity {
- 	private String URLImagen, descripcion;
+    private String imagen, descripcion;
 
-    public String getURLImagen() {
-        return URLImagen;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setURLImagen(String URLImagen) {
-        this.URLImagen = URLImagen;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getDescripcion() {

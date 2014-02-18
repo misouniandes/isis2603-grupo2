@@ -1,6 +1,9 @@
 
 package co.edu.uniandes.csw.client.logic.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement 
 public class ClientDTO extends _ClientDTO {
         
         private String email;

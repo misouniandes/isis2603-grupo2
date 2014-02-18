@@ -13,6 +13,8 @@ public abstract class _ClientConverter {
 	public static ClientDTO entity2PersistenceDTO(ClientEntity entity){
 		if (entity != null) {
 			ClientDTO dto = new ClientDTO();
+                                dto.setEmail(entity.getEmail());
+                                dto.setPassword(entity.getPassword());
 				dto.setId(entity.getId());
 				dto.setName(entity.getName());
 				dto.setCc(entity.getCc());
@@ -30,6 +32,7 @@ public abstract class _ClientConverter {
 			entity.setCc(dto.getCc());
                         entity.setEmail(dto.getEmail());
                         entity.setPassword(dto.getPassword());
+                        
 			return entity;
 		}else {
 			return null;
