@@ -3,10 +3,12 @@ define(['model/pymeModel'], function(pymeModel) {
         initialize: function(options) {
             this.modelClass = options.modelClass;
             this.listModelClass = options.listModelClass;
+          
             this.showEdit = true;
             this.showDelete = true;
             this.editTemplate = _.template($('#pyme').html());
             this.listTemplate = _.template($('#pymeList').html());
+            this.searchTemplate = _.template($('#pymeSearch').html()+$('#pymeList').html());
             if (!options || !options.componentId) {
                 this.componentId = _.random(0, 100) + "";
             }else{
@@ -30,6 +32,12 @@ define(['model/pymeModel'], function(pymeModel) {
             });
             Backbone.on(this.componentId + '-' + 'pyme-save', function(params) {
                 self.save(params);
+            });
+            Backbone.on(this.componentId + '-' + 'toolbar-search', function(params) {
+                self.search(params);
+            });
+            Backbone.on(this.componentId+'-pyme-search', function(params) {
+                self.pymeSearch(params);
             });
             if(self.postInit){
                 self.postInit();
@@ -122,11 +130,14 @@ define(['model/pymeModel'], function(pymeModel) {
         save: function() {
             var self = this;
             var model = $('#' + this.componentId + '-pymeForm').serializeObject();
+    
             if (App.Utils.eventExists(this.componentId + '-' +'instead-pyme-save')) {
                 Backbone.trigger(this.componentId + '-' + 'instead-pyme-save', {view: this, model : model});
             } else {
                 Backbone.trigger(this.componentId + '-' + 'pre-pyme-save', {view: this, model : model});
                 this.currentPymeModel.set(model);
+              //  alert(model.toString());
+             // alert(self.currentPymeModel);
                 this.currentPymeModel.save({},
                         {
                             success: function(model) {
@@ -138,8 +149,45 @@ define(['model/pymeModel'], function(pymeModel) {
                         });
             }
         },
+          search: function() {
+            this.currentPymeModel =  new this.modelClass();
+            this.searchModelList = new this.listModelClass();
+            this._renderSearch();
+        },
+        pymeSearch: function() {
+            var self = this;
+              var model = $('#' + this.componentId + '-pymeForm').serializeObject();
+              
+              this.currentPymeModel.set(model);
+              //alert(model.toString());
+              //alert(self.currentPymeModel.toString());
+            this.searchDel(self.currentPymeModel, function(data) {
+                self.searchModelList=new self.listModelClass();
+                _.each(data,function(d){
+                    var model=new self.modelClass(d);
+                    self.searchModelList.models.push(model);
+                });
+                self._renderSearch();
+            }, function(data) {
+                Backbone.trigger(self.componentId + '-' + 'error', {event: 'pyme-search', view: self, id: '', data: data, error: 'Error in pyme search'});
+            });
+        },
+        searchDel: function(pyme, callback, callbackError) {
+            console.log('pyme Search: ');
+            $.ajax({
+                url: '/pyme.service.subsystem.web/webresources/Pyme/search',
+                type: 'POST',
+                data: JSON.stringify(pyme),
+                contentType: 'application/json'
+            }).done(_.bind(function(data) {
+                callback(data);
+            }, this)).error(_.bind(function(data) {
+                callbackError(data);
+            }, this));
+        },
         _renderList: function() {
             var self = this;
+            
             this.$el.slideUp("fast", function() {
                 self.$el.html(self.listTemplate({pymes: self.pymeModelList.models, componentId: self.componentId, showEdit : self.showEdit , showDelete : self.showDelete}));
                 self.$el.slideDown("fast");
@@ -151,6 +199,19 @@ define(['model/pymeModel'], function(pymeModel) {
                 self.$el.html(self.editTemplate({pyme: self.currentPymeModel, componentId: self.componentId , showEdit : self.showEdit , showDelete : self.showDelete
  
 				}));
+                self.$el.slideDown("fast");
+            });
+        },
+        _renderSearch: function() {
+ 
+            var self = this;
+            this.$el.slideUp("fast", function() {
+                self.$el.html(self.searchTemplate({componentId: self.componentId,
+                    pymes: self.searchModelList.models,
+                    pyme: self.currentPymeModel,
+                    showEdit: false,
+                    showDelete:false
+                }));
                 self.$el.slideDown("fast");
             });
         }
