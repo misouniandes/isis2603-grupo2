@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IProductPersistence extends _IProductPersistence {
    
+    public List<ProductDTO> searchProduct(ProductDTO product);
 }

@@ -16,6 +16,9 @@ import java.util.List;
 @Stateless
 @LocalBean
 public class ProductLogicService extends _ProductLogicService implements IProductLogicService {
-
+    
+    public List<ProductDTO> searchProduct(ProductDTO product) {
+       return persistance.searchProduct(product);
+    }
 
 }

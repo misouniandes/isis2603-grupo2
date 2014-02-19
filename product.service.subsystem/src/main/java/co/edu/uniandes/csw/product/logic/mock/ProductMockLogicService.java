@@ -12,6 +12,10 @@ import java.util.List;
 @Singleton
 public class ProductMockLogicService extends _ProductMockLogicService implements IProductLogicService {
 
+    public List<ProductDTO> searchProduct(ProductDTO pyme) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
  
 	
 }

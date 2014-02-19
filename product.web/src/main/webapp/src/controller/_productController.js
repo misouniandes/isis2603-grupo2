@@ -7,6 +7,7 @@ define(['model/productModel'], function(productModel) {
             this.showDelete = true;
             this.editTemplate = _.template($('#product').html());
             this.listTemplate = _.template($('#productList').html());
+            this.searchTemplate = _.template($('#productSearch').html());
             if (!options || !options.componentId) {
                 this.componentId = _.random(0, 100) + "";
             }else{
@@ -30,6 +31,12 @@ define(['model/productModel'], function(productModel) {
             });
             Backbone.on(this.componentId + '-' + 'product-save', function(params) {
                 self.save(params);
+            });
+            Backbone.on(this.componentId + '-' + 'toolbar-search', function(params) {
+                self.search(params);
+            });
+            Backbone.on(this.componentId+'-product-search', function(params) {
+                self.productSearch(params);
             });
              if(self.postInit){
                 self.postInit();
@@ -138,6 +145,40 @@ define(['model/productModel'], function(productModel) {
                         });
             }
         },
+        search: function() {
+            this.currentProductModel =  new this.modelClass();
+            this.searchModelList = new this.listModelClass();
+            this._renderSearch();
+        },
+        productSearch: function() {
+            var self = this;
+              var model = $('#' + this.componentId + '-productForm').serializeObject();
+              
+              this.currentProductModel.set(model);              
+            this.searchDel(self.currentProductModel, function(data) {
+                self.searchModelList=new self.listModelClass();
+                _.each(data,function(d){
+                    var model=new self.modelClass(d);
+                    self.searchModelList.models.push(model);
+                });
+                self._renderSearch();
+            }, function(data) {
+                Backbone.trigger(self.componentId + '-' + 'error', {event: 'product-search', view: self, id: '', data: data, error: 'Error in product search'});
+            });
+        },
+        searchDel: function(product, callback, callbackError) {
+            console.log('product Search: ');
+            $.ajax({
+                url: '/product.service.subsystem.web/webresources/Product/search',
+                type: 'POST',
+                data: JSON.stringify(product),
+                contentType: 'application/json'
+            }).done(_.bind(function(data) {
+                callback(data);
+            }, this)).error(_.bind(function(data) {
+                callbackError(data);
+            }, this));
+        },
         _renderList: function() {
             var self = this;
             this.$el.slideUp("fast", function() {
@@ -151,6 +192,19 @@ define(['model/productModel'], function(productModel) {
                 self.$el.html(self.editTemplate({product: self.currentProductModel, componentId: self.componentId , showEdit : self.showEdit , showDelete : self.showDelete
  
 				}));
+                self.$el.slideDown("fast");
+            });
+        },
+        _renderSearch: function() {
+ 
+            var self = this;
+            this.$el.slideUp("fast", function() {
+                self.$el.html(self.searchTemplate({componentId: self.componentId,
+                    products: self.searchModelList.models,
+                    product: self.currentProductModel,
+                    showEdit: false,
+                    showDelete:false
+                }));
                 self.$el.slideDown("fast");
             });
         }
