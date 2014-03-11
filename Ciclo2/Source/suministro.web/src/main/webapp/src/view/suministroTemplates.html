@@ -1,0 +1,84 @@
+<script type="text/template" id="suministroList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+		 <th>name</th>
+		 <th>cantidadDisp</th>
+		 <th>canitdadEnProc</th>
+		 <th>tiempoEspera</th>
+		 <th>costoPromedio</th>
+		 <th>lugar</th>
+		 <th>cantidadMin</th>
+		 <th>cantidadMax</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(suministros, function(suministro) { %>
+    <tr>
+		<td><%= htmlEncode(suministro.getDisplay('name')) %></td>
+		<td><%= htmlEncode(suministro.getDisplay('cantidadDisp')) %></td>
+		<td><%= htmlEncode(suministro.getDisplay('canitdadEnProc')) %></td>
+		<td><%= htmlEncode(suministro.getDisplay('tiempoEspera')) %></td>
+		<td><%= htmlEncode(suministro.getDisplay('costoPromedio')) %></td>
+		<td><%= htmlEncode(suministro.getDisplay('lugar')) %></td>
+		<td><%= htmlEncode(suministro.getDisplay('cantidadMin')) %></td>
+		<td><%= htmlEncode(suministro.getDisplay('cantidadMax')) %></td>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-suministro-edit',{id:<%= suministro.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-suministro-delete',{id:<%= suministro.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="suministro">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-suministroForm">
+    <% if(suministro.id) {%>
+    <input type="hidden" name="id" value="<%= suministro.id %>"/>
+    <% }%>
+		<div class="form-group" >
+		<label for="name">name</label>
+    	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= suministro.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="cantidadDisp">cantidadDisp</label>
+    	<input type="text" class="form-control" id="cantidadDisp" name="cantidadDisp" placeholder="Enter value" value="<%= suministro.get('cantidadDisp') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="canitdadEnProc">canitdadEnProc</label>
+    	<input type="text" class="form-control" id="canitdadEnProc" name="canitdadEnProc" placeholder="Enter value" value="<%= suministro.get('canitdadEnProc') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="tiempoEspera">tiempoEspera</label>
+    	<input type="text" class="form-control" id="tiempoEspera" name="tiempoEspera" placeholder="Enter value" value="<%= suministro.get('tiempoEspera') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="costoPromedio">costoPromedio</label>
+    	<input type="text" class="form-control" id="costoPromedio" name="costoPromedio" placeholder="Enter value" value="<%= suministro.get('costoPromedio') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="lugar">lugar</label>
+    	<input type="text" class="form-control" id="lugar" name="lugar" placeholder="Enter value" value="<%= suministro.get('lugar') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="cantidadMin">cantidadMin</label>
+    	<input type="text" class="form-control" id="cantidadMin" name="cantidadMin" placeholder="Enter value" value="<%= suministro.get('cantidadMin') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="cantidadMax">cantidadMax</label>
+    	<input type="text" class="form-control" id="cantidadMax" name="cantidadMax" placeholder="Enter value" value="<%= suministro.get('cantidadMax') %>"/>	
+		</div>
+    </form>
+    </div>
+</script> 

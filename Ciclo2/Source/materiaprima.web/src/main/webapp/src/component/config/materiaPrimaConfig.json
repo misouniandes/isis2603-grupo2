@@ -1,0 +1,9 @@
+{
+    "displayName" : "MateriaPrima",
+    "name" : "materiaPrima",
+    "templateName" : "materiaPrima",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/materiaprima.service.subsystem.web/webresources/MateriaPrima",
+    "el" : "#main"
+}
