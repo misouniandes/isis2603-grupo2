@@ -13,6 +13,7 @@ public abstract class _ItemDTO {
 	private Date fechaExpiracion;
 	private Double costo;
 	private String name;
+	private String lugar;
 
 	public Long getId() {
 		return id;
@@ -48,6 +49,13 @@ public abstract class _ItemDTO {
  
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getLugar() {
+		return lugar;
+	}
+ 
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
 	}
 	
 }

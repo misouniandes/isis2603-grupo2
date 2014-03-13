@@ -15,7 +15,6 @@ public abstract class _ProductoCompDTO {
 	private Integer canitdadEnProc;
 	private Integer tiempoEspera;
 	private Double costoPromedio;
-	private String lugar;
 	private Integer cantidadMin;
 	private Integer cantidadMax;
 
@@ -67,13 +66,6 @@ public abstract class _ProductoCompDTO {
  
 	public void setCostoPromedio(Double costopromedio) {
 		this.costoPromedio = costopromedio;
-	}
-	public String getLugar() {
-		return lugar;
-	}
- 
-	public void setLugar(String lugar) {
-		this.lugar = lugar;
 	}
 	public Integer getCantidadMin() {
 		return cantidadMin;

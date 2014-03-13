@@ -14,8 +14,6 @@ define([], function() {
  ,  
 		 'costoPromedio' : ''
  ,  
-		 'lugar' : ''
- ,  
 		 'cantidadMin' : ''
  ,  
 		 'cantidadMax' : ''

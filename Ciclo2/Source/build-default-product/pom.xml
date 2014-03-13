@@ -37,5 +37,9 @@
     	  <module>../documento.web</module>
     	  <module>../documento.service.subsystem</module>
 		  <module>../documento.service.subsystem.web</module>
+        <module>../factura.master.service.subsystem</module>
+        <module>../inventario.master.service.subsystem</module>
+        <module>../productocomp.master.service.subsystem</module>
+        <module>../producto.master.service.subsystem</module>
     </modules>
 </project>

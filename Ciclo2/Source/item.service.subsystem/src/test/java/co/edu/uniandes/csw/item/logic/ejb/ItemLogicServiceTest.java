@@ -70,6 +70,7 @@ public class ItemLogicServiceTest {
 			pdto.setFechaExpiracion(generateRandom(Date.class));
 			pdto.setCosto(generateRandom(Double.class));
 			pdto.setName(generateRandom(String.class));
+			pdto.setLugar(generateRandom(String.class));
 			pdto=itemPersistence.createItem(pdto);
 			data.add(pdto);
 		}
@@ -82,6 +83,7 @@ public class ItemLogicServiceTest {
 		ldto.setFechaExpiracion(generateRandom(Date.class));
 		ldto.setCosto(generateRandom(Double.class));
 		ldto.setName(generateRandom(String.class));
+		ldto.setLugar(generateRandom(String.class));
 		
 		
 		ItemDTO result=itemLogicService.createItem(ldto);
@@ -94,6 +96,7 @@ public class ItemLogicServiceTest {
 		Assert.assertEquals(ldto.getFechaExpiracion(), pdto.getFechaExpiracion());	
 		Assert.assertEquals(ldto.getCosto(), pdto.getCosto());	
 		Assert.assertEquals(ldto.getName(), pdto.getName());	
+		Assert.assertEquals(ldto.getLugar(), pdto.getLugar());	
 	}
 	
 	@Test
@@ -120,6 +123,7 @@ public class ItemLogicServiceTest {
 		Assert.assertEquals(pdto.getFechaExpiracion(), ldto.getFechaExpiracion());
 		Assert.assertEquals(pdto.getCosto(), ldto.getCosto());
 		Assert.assertEquals(pdto.getName(), ldto.getName());
+		Assert.assertEquals(pdto.getLugar(), ldto.getLugar());
         
 	}
 	
@@ -141,6 +145,7 @@ public class ItemLogicServiceTest {
 		ldto.setFechaExpiracion(generateRandom(Date.class));
 		ldto.setCosto(generateRandom(Double.class));
 		ldto.setName(generateRandom(String.class));
+		ldto.setLugar(generateRandom(String.class));
 		
 		
 		itemLogicService.updateItem(ldto);
@@ -152,6 +157,7 @@ public class ItemLogicServiceTest {
 		Assert.assertEquals(ldto.getFechaExpiracion(), resp.getFechaExpiracion());	
 		Assert.assertEquals(ldto.getCosto(), resp.getCosto());	
 		Assert.assertEquals(ldto.getName(), resp.getName());	
+		Assert.assertEquals(ldto.getLugar(), resp.getLugar());	
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

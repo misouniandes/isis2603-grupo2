@@ -10,7 +10,6 @@
 		 <th>canitdadEnProc</th>
 		 <th>tiempoEspera</th>
 		 <th>costoPromedio</th>
-		 <th>lugar</th>
 		 <th>cantidadMin</th>
 		 <th>cantidadMax</th>
     <th>Actions</th>
@@ -25,7 +24,6 @@
 		<td><%= htmlEncode(productoComp.getDisplay('canitdadEnProc')) %></td>
 		<td><%= htmlEncode(productoComp.getDisplay('tiempoEspera')) %></td>
 		<td><%= htmlEncode(productoComp.getDisplay('costoPromedio')) %></td>
-		<td><%= htmlEncode(productoComp.getDisplay('lugar')) %></td>
 		<td><%= htmlEncode(productoComp.getDisplay('cantidadMin')) %></td>
 		<td><%= htmlEncode(productoComp.getDisplay('cantidadMax')) %></td>
     <td>
@@ -72,10 +70,6 @@
 		<div class="form-group" >
 		<label for="costoPromedio">costoPromedio</label>
     	<input type="text" class="form-control" id="costoPromedio" name="costoPromedio" placeholder="Enter value" value="<%= productoComp.get('costoPromedio') %>"/>	
-		</div>
-		<div class="form-group" >
-		<label for="lugar">lugar</label>
-    	<input type="text" class="form-control" id="lugar" name="lugar" placeholder="Enter value" value="<%= productoComp.get('lugar') %>"/>	
 		</div>
 		<div class="form-group" >
 		<label for="cantidadMin">cantidadMin</label>

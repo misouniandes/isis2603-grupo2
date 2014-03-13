@@ -71,7 +71,6 @@ public class ProductoLogicServiceTest {
 			pdto.setCanitdadEnProc(generateRandom(Integer.class));
 			pdto.setTiempoEspera(generateRandom(Integer.class));
 			pdto.setCostoPromedio(generateRandom(Double.class));
-			pdto.setLugar(generateRandom(String.class));
 			pdto.setCantidadMin(generateRandom(Integer.class));
 			pdto.setCantidadMax(generateRandom(Integer.class));
 			pdto=productoPersistence.createProducto(pdto);
@@ -87,7 +86,6 @@ public class ProductoLogicServiceTest {
 		ldto.setCanitdadEnProc(generateRandom(Integer.class));
 		ldto.setTiempoEspera(generateRandom(Integer.class));
 		ldto.setCostoPromedio(generateRandom(Double.class));
-		ldto.setLugar(generateRandom(String.class));
 		ldto.setCantidadMin(generateRandom(Integer.class));
 		ldto.setCantidadMax(generateRandom(Integer.class));
 		
@@ -103,7 +101,6 @@ public class ProductoLogicServiceTest {
 		Assert.assertEquals(ldto.getCanitdadEnProc(), pdto.getCanitdadEnProc());	
 		Assert.assertEquals(ldto.getTiempoEspera(), pdto.getTiempoEspera());	
 		Assert.assertEquals(ldto.getCostoPromedio(), pdto.getCostoPromedio());	
-		Assert.assertEquals(ldto.getLugar(), pdto.getLugar());	
 		Assert.assertEquals(ldto.getCantidadMin(), pdto.getCantidadMin());	
 		Assert.assertEquals(ldto.getCantidadMax(), pdto.getCantidadMax());	
 	}
@@ -133,7 +130,6 @@ public class ProductoLogicServiceTest {
 		Assert.assertEquals(pdto.getCanitdadEnProc(), ldto.getCanitdadEnProc());
 		Assert.assertEquals(pdto.getTiempoEspera(), ldto.getTiempoEspera());
 		Assert.assertEquals(pdto.getCostoPromedio(), ldto.getCostoPromedio());
-		Assert.assertEquals(pdto.getLugar(), ldto.getLugar());
 		Assert.assertEquals(pdto.getCantidadMin(), ldto.getCantidadMin());
 		Assert.assertEquals(pdto.getCantidadMax(), ldto.getCantidadMax());
         
@@ -158,7 +154,6 @@ public class ProductoLogicServiceTest {
 		ldto.setCanitdadEnProc(generateRandom(Integer.class));
 		ldto.setTiempoEspera(generateRandom(Integer.class));
 		ldto.setCostoPromedio(generateRandom(Double.class));
-		ldto.setLugar(generateRandom(String.class));
 		ldto.setCantidadMin(generateRandom(Integer.class));
 		ldto.setCantidadMax(generateRandom(Integer.class));
 		
@@ -173,7 +168,6 @@ public class ProductoLogicServiceTest {
 		Assert.assertEquals(ldto.getCanitdadEnProc(), resp.getCanitdadEnProc());	
 		Assert.assertEquals(ldto.getTiempoEspera(), resp.getTiempoEspera());	
 		Assert.assertEquals(ldto.getCostoPromedio(), resp.getCostoPromedio());	
-		Assert.assertEquals(ldto.getLugar(), resp.getLugar());	
 		Assert.assertEquals(ldto.getCantidadMin(), resp.getCantidadMin());	
 		Assert.assertEquals(ldto.getCantidadMax(), resp.getCantidadMax());	
 	}

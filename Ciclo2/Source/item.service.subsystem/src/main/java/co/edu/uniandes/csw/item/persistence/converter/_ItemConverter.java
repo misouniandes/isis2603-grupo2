@@ -18,6 +18,7 @@ public abstract class _ItemConverter {
 				dto.setFechaExpiracion(entity.getFechaExpiracion());
 				dto.setCosto(entity.getCosto());
 				dto.setName(entity.getName());
+				dto.setLugar(entity.getLugar());
 			return dto;
 		}else{
 			return null;
@@ -32,6 +33,7 @@ public abstract class _ItemConverter {
 			entity.setFechaExpiracion(dto.getFechaExpiracion());
 			entity.setCosto(dto.getCosto());
 			entity.setName(dto.getName());
+			entity.setLugar(dto.getLugar());
 			return entity;
 		}else {
 			return null;

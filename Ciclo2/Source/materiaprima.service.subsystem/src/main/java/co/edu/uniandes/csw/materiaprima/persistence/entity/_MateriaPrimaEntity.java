@@ -20,7 +20,6 @@ public abstract class _MateriaPrimaEntity {
 	private Integer canitdadEnProc;
 	private Integer tiempoEspera;
 	private Double costoPromedio;
-	private String lugar;
 	private Integer cantidadMin;
 	private Integer cantidadMax;
 
@@ -65,13 +64,6 @@ public abstract class _MateriaPrimaEntity {
 	
 	public void setCostoPromedio(Double costoPromedio){
 		this.costoPromedio = costoPromedio;
-	}
-	public String getLugar(){
-		return lugar;
-	}
-	
-	public void setLugar(String lugar){
-		this.lugar = lugar;
 	}
 	public Integer getCantidadMin(){
 		return cantidadMin;

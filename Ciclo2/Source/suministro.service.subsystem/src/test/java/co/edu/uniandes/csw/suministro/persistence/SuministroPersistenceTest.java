@@ -76,7 +76,6 @@ public class SuministroPersistenceTest {
 			entity.setCanitdadEnProc(generateRandom(Integer.class));
 			entity.setTiempoEspera(generateRandom(Integer.class));
 			entity.setCostoPromedio(generateRandom(Double.class));
-			entity.setLugar(generateRandom(String.class));
 			entity.setCantidadMin(generateRandom(Integer.class));
 			entity.setCantidadMax(generateRandom(Integer.class));
 			em.persist(entity);
@@ -92,7 +91,6 @@ public class SuministroPersistenceTest {
 		dto.setCanitdadEnProc(generateRandom(Integer.class));
 		dto.setTiempoEspera(generateRandom(Integer.class));
 		dto.setCostoPromedio(generateRandom(Double.class));
-		dto.setLugar(generateRandom(String.class));
 		dto.setCantidadMin(generateRandom(Integer.class));
 		dto.setCantidadMax(generateRandom(Integer.class));
 		
@@ -108,7 +106,6 @@ public class SuministroPersistenceTest {
 		Assert.assertEquals(dto.getCanitdadEnProc(), entity.getCanitdadEnProc());	
 		Assert.assertEquals(dto.getTiempoEspera(), entity.getTiempoEspera());	
 		Assert.assertEquals(dto.getCostoPromedio(), entity.getCostoPromedio());	
-		Assert.assertEquals(dto.getLugar(), entity.getLugar());	
 		Assert.assertEquals(dto.getCantidadMin(), entity.getCantidadMin());	
 		Assert.assertEquals(dto.getCantidadMax(), entity.getCantidadMax());	
 	}
@@ -138,7 +135,6 @@ public class SuministroPersistenceTest {
 		Assert.assertEquals(entity.getCanitdadEnProc(), dto.getCanitdadEnProc());
 		Assert.assertEquals(entity.getTiempoEspera(), dto.getTiempoEspera());
 		Assert.assertEquals(entity.getCostoPromedio(), dto.getCostoPromedio());
-		Assert.assertEquals(entity.getLugar(), dto.getLugar());
 		Assert.assertEquals(entity.getCantidadMin(), dto.getCantidadMin());
 		Assert.assertEquals(entity.getCantidadMax(), dto.getCantidadMax());
         
@@ -163,7 +159,6 @@ public class SuministroPersistenceTest {
 		dto.setCanitdadEnProc(generateRandom(Integer.class));
 		dto.setTiempoEspera(generateRandom(Integer.class));
 		dto.setCostoPromedio(generateRandom(Double.class));
-		dto.setLugar(generateRandom(String.class));
 		dto.setCantidadMin(generateRandom(Integer.class));
 		dto.setCantidadMax(generateRandom(Integer.class));
 		
@@ -178,7 +173,6 @@ public class SuministroPersistenceTest {
 		Assert.assertEquals(dto.getCanitdadEnProc(), resp.getCanitdadEnProc());	
 		Assert.assertEquals(dto.getTiempoEspera(), resp.getTiempoEspera());	
 		Assert.assertEquals(dto.getCostoPromedio(), resp.getCostoPromedio());	
-		Assert.assertEquals(dto.getLugar(), resp.getLugar());	
 		Assert.assertEquals(dto.getCantidadMin(), resp.getCantidadMin());	
 		Assert.assertEquals(dto.getCantidadMax(), resp.getCantidadMax());	
 	}

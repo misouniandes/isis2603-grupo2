@@ -19,7 +19,6 @@ public abstract class _MateriaPrimaConverter {
 				dto.setCanitdadEnProc(entity.getCanitdadEnProc());
 				dto.setTiempoEspera(entity.getTiempoEspera());
 				dto.setCostoPromedio(entity.getCostoPromedio());
-				dto.setLugar(entity.getLugar());
 				dto.setCantidadMin(entity.getCantidadMin());
 				dto.setCantidadMax(entity.getCantidadMax());
 			return dto;
@@ -37,7 +36,6 @@ public abstract class _MateriaPrimaConverter {
 			entity.setCanitdadEnProc(dto.getCanitdadEnProc());
 			entity.setTiempoEspera(dto.getTiempoEspera());
 			entity.setCostoPromedio(dto.getCostoPromedio());
-			entity.setLugar(dto.getLugar());
 			entity.setCantidadMin(dto.getCantidadMin());
 			entity.setCantidadMax(dto.getCantidadMax());
 			return entity;

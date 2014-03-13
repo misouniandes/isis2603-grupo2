@@ -8,6 +8,7 @@
 		 <th>fechaExpiracion</th>
 		 <th>costo</th>
 		 <th>name</th>
+		 <th>lugar</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -18,6 +19,7 @@
 		<td><%= htmlEncode(item.getDisplay('fechaExpiracion')) %></td>
 		<td><%= htmlEncode(item.getDisplay('costo')) %></td>
 		<td><%= htmlEncode(item.getDisplay('name')) %></td>
+		<td><%= htmlEncode(item.getDisplay('lugar')) %></td>
     <td>
     <% if(showEdit) {%>
     <a onclick="Backbone.trigger('<%= componentId %>-item-edit',{id:<%= item.id %>}); return false" >Edit</a> |
@@ -62,6 +64,10 @@
 		<div class="form-group" >
 		<label for="name">name</label>
     	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= item.get('name') %>"/>	
+		</div>
+		<div class="form-group" >
+		<label for="lugar">lugar</label>
+    	<input type="text" class="form-control" id="lugar" name="lugar" placeholder="Enter value" value="<%= item.get('lugar') %>"/>	
 		</div>
     </form>
     </div>

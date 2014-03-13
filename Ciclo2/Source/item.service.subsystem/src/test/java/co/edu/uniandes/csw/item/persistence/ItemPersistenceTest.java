@@ -75,6 +75,7 @@ public class ItemPersistenceTest {
 			entity.setFechaExpiracion(generateRandom(Date.class));
 			entity.setCosto(generateRandom(Double.class));
 			entity.setName(generateRandom(String.class));
+			entity.setLugar(generateRandom(String.class));
 			em.persist(entity);
 			data.add(entity);
 		}
@@ -87,6 +88,7 @@ public class ItemPersistenceTest {
 		dto.setFechaExpiracion(generateRandom(Date.class));
 		dto.setCosto(generateRandom(Double.class));
 		dto.setName(generateRandom(String.class));
+		dto.setLugar(generateRandom(String.class));
 		
 		
 		ItemDTO result=itemPersistence.createItem(dto);
@@ -99,6 +101,7 @@ public class ItemPersistenceTest {
 		Assert.assertEquals(dto.getFechaExpiracion(), entity.getFechaExpiracion());	
 		Assert.assertEquals(dto.getCosto(), entity.getCosto());	
 		Assert.assertEquals(dto.getName(), entity.getName());	
+		Assert.assertEquals(dto.getLugar(), entity.getLugar());	
 	}
 	
 	@Test
@@ -125,6 +128,7 @@ public class ItemPersistenceTest {
 		Assert.assertEquals(entity.getFechaExpiracion(), dto.getFechaExpiracion());
 		Assert.assertEquals(entity.getCosto(), dto.getCosto());
 		Assert.assertEquals(entity.getName(), dto.getName());
+		Assert.assertEquals(entity.getLugar(), dto.getLugar());
         
 	}
 	
@@ -146,6 +150,7 @@ public class ItemPersistenceTest {
 		dto.setFechaExpiracion(generateRandom(Date.class));
 		dto.setCosto(generateRandom(Double.class));
 		dto.setName(generateRandom(String.class));
+		dto.setLugar(generateRandom(String.class));
 		
 		
 		itemPersistence.updateItem(dto);
@@ -157,6 +162,7 @@ public class ItemPersistenceTest {
 		Assert.assertEquals(dto.getFechaExpiracion(), resp.getFechaExpiracion());	
 		Assert.assertEquals(dto.getCosto(), resp.getCosto());	
 		Assert.assertEquals(dto.getName(), resp.getName());	
+		Assert.assertEquals(dto.getLugar(), resp.getLugar());	
 	}
 	
 	public <T> T generateRandom(Class<T> objectClass){

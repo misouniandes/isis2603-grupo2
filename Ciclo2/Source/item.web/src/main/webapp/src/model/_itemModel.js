@@ -9,6 +9,8 @@ define([], function() {
 		 'costo' : ''
  ,  
 		 'name' : ''
+ ,  
+		 'lugar' : ''
         },
         initialize: function() {
         },
