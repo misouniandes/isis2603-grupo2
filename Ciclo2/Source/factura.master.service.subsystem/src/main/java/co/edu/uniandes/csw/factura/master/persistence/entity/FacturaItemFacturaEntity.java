@@ -1,6 +1,6 @@
 package co.edu.uniandes.csw.factura.master.persistence.entity;
 
-import co.edu.uniandes.csw.itemFactura.persistence.entity.ItemFacturaEntity;
+import co.edu.uniandes.csw.itemfactura.persistence.entity.ItemFacturaEntity;
 import co.edu.uniandes.csw.factura.persistence.entity.FacturaEntity;
 import java.io.Serializable;
 import javax.persistence.Column;

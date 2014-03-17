@@ -14,11 +14,6 @@ public interface _IProductoMasterPersistence {
     public void deleteProductoDocumento(Long productoId, Long documentoId);
     
     public List<DocumentoDTO> getDocumentoListForProducto(Long productoId);
-    public ProductoDocumentoEntity createProductoDocumento(ProductoDocumentoEntity entity);
-
-    public void deleteProductoDocumento(Long productoId, Long documentoId);
-    
-    public List<DocumentoDTO> getDocumentoListForProducto(Long productoId);
     
     public ProductoMasterDTO getProducto(Long productoId);
 

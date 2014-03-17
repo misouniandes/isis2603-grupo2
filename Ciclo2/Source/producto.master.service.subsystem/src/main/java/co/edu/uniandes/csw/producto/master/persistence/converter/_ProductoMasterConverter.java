@@ -16,17 +16,14 @@ public abstract class _ProductoMasterConverter {
 
     public static ProductoMasterDTO entity2PersistenceDTO(ProductoEntity productoEntity 
     ,List<ProductoDocumentoEntity> productoDocumentoEntity 
-    ,List<ProductoDocumentoEntity> productoDocumentoEntity 
+    
     ) {
         ProductoDTO productoDTO = ProductoConverter.entity2PersistenceDTO(productoEntity);
         ArrayList<DocumentoDTO> documentoEntities = new ArrayList<DocumentoDTO>(productoDocumentoEntity.size());
         for (ProductoDocumentoEntity productoDocumento : productoDocumentoEntity) {
             documentoEntities.add(DocumentoConverter.entity2PersistenceDTO(productoDocumento.getDocumentoEntity()));
         }
-        ArrayList<DocumentoDTO> documentoEntities = new ArrayList<DocumentoDTO>(productoDocumentoEntity.size());
-        for (ProductoDocumentoEntity productoDocumento : productoDocumentoEntity) {
-            documentoEntities.add(DocumentoConverter.entity2PersistenceDTO(productoDocumento.getDocumentoEntity()));
-        }
+        
         ProductoMasterDTO respDTO  = new ProductoMasterDTO();
         respDTO.setProductoEntity(productoDTO);
         respDTO.setListDocumento(documentoEntities);

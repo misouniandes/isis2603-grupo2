@@ -21,9 +21,7 @@ public abstract class _ProductoMasterLogicService implements _IProductoMasterLog
     protected IProductoMasterPersistence productoMasterPersistance;
     @Inject
     protected IDocumentoPersistence documentoPersistance;
-    @Inject
-    protected IDocumentoPersistence documentoPersistance;
-
+    
     public ProductoMasterDTO createMasterProducto(ProductoMasterDTO producto) {
         ProductoDTO persistedProductoDTO = productoPersistance.createProducto(producto.getProductoEntity());
         if (producto.getCreateDocumento() != null) {

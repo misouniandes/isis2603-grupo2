@@ -1,7 +1,7 @@
 package co.edu.uniandes.csw.factura.master.persistence.converter;
 import co.edu.uniandes.csw.factura.master.persistence.entity.FacturaItemFacturaEntity;
-import co.edu.uniandes.csw.itemFactura.logic.dto.ItemFacturaDTO;
-import co.edu.uniandes.csw.itemFactura.persistence.converter.ItemFacturaConverter;
+import co.edu.uniandes.csw.itemfactura.logic.dto.ItemFacturaDTO;
+import co.edu.uniandes.csw.itemfactura.persistence.converter.ItemFacturaConverter;
 import co.edu.uniandes.csw.factura.logic.dto.FacturaDTO;
 import co.edu.uniandes.csw.factura.master.logic.dto.FacturaMasterDTO;
 import co.edu.uniandes.csw.factura.persistence.converter.FacturaConverter;

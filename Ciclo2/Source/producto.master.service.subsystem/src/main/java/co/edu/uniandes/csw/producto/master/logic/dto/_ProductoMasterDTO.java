@@ -35,11 +35,7 @@ public abstract class _ProductoMasterDTO {
     public List<DocumentoDTO> updateDocumento;
     public List<DocumentoDTO> deleteDocumento;
     public List<DocumentoDTO> listDocumento;	
-    public List<DocumentoDTO> createDocumento;
-    public List<DocumentoDTO> updateDocumento;
-    public List<DocumentoDTO> deleteDocumento;
-    public List<DocumentoDTO> listDocumento;	
-	
+
 	
 	
     public List<DocumentoDTO> getCreateDocumento(){ return createDocumento; };
@@ -50,15 +46,7 @@ public abstract class _ProductoMasterDTO {
     public void setDeleteDocumento(List<DocumentoDTO> deleteDocumento){ this.deleteDocumento=deleteDocumento; };
     public List<DocumentoDTO> getListDocumento(){ return listDocumento; };
     public void setListDocumento(List<DocumentoDTO> listDocumento){ this.listDocumento=listDocumento; };	
-    public List<DocumentoDTO> getCreateDocumento(){ return createDocumento; };
-    public void setCreateDocumento(List<DocumentoDTO> createDocumento){ this.createDocumento=createDocumento; };
-    public List<DocumentoDTO> getUpdateDocumento(){ return updateDocumento; };
-    public void setUpdateDocumento(List<DocumentoDTO> updateDocumento){ this.updateDocumento=updateDocumento; };
-    public List<DocumentoDTO> getDeleteDocumento(){ return deleteDocumento; };
-    public void setDeleteDocumento(List<DocumentoDTO> deleteDocumento){ this.deleteDocumento=deleteDocumento; };
-    public List<DocumentoDTO> getListDocumento(){ return listDocumento; };
-    public void setListDocumento(List<DocumentoDTO> listDocumento){ this.listDocumento=listDocumento; };	
-	
+    
 	
 }
 

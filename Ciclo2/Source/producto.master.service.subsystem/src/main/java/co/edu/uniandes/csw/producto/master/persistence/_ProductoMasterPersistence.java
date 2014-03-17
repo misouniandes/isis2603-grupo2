@@ -58,30 +58,6 @@ public class _ProductoMasterPersistence implements _IProductoMasterPersistence {
         }
         return resp;
     }
-    public ProductoDocumentoEntity createProductoDocumento(ProductoDocumentoEntity entity) {
-        entityManager.persist(entity);
-        return entity;
-    }
-
-    public void deleteProductoDocumento(Long productoId, Long documentoId) {
-        Query q = entityManager.createNamedQuery("ProductoDocumentoEntity.deleteProductoDocumento");
-        q.setParameter("productoId", productoId);
-        q.setParameter("documentoId", documentoId);
-        q.executeUpdate();
-    }
-
-    public List<DocumentoDTO> getDocumentoListForProducto(Long productoId) {
-        ArrayList<DocumentoDTO> resp = new ArrayList<DocumentoDTO>();
-        Query q = entityManager.createNamedQuery("ProductoDocumentoEntity.getDocumentoListForProducto");
-        q.setParameter("productoId", productoId);
-        List<ProductoDocumentoEntity> qResult =  q.getResultList();
-        for (ProductoDocumentoEntity productoDocumentoEntity : qResult) { 
-            if(productoDocumentoEntity.getDocumentoEntity()==null){
-                entityManager.refresh(productoDocumentoEntity);
-            }
-            resp.add(DocumentoConverter.entity2PersistenceDTO(productoDocumentoEntity.getDocumentoEntity()));
-        }
-        return resp;
-    }
+    
 
 }
