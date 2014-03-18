@@ -1,9 +1,0 @@
-{
-    "displayName" : "ItemFactura",
-    "name" : "itemFactura",
-    "templateName" : "itemFactura",
-    "url" : "user.html",
-    "server": "localhost:8080",
-    "context": "/itemfactura.service.subsystem.web/webresources/ItemFactura",
-    "el" : "#main"
-}
