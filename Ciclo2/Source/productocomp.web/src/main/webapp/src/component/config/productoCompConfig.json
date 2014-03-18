@@ -1,0 +1,9 @@
+{
+    "displayName" : "ProductoComp",
+    "name" : "productoComp",
+    "templateName" : "productoComp",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/productocomp.service.subsystem.web/webresources/ProductoComp",
+    "el" : "#main"
+}

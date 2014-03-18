@@ -1,0 +1,36 @@
+<script type="text/template" id="inventarioList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <table class="table striped">
+    <thead>
+    <tr>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% _.each(inventarios, function(inventario) { %>
+    <tr>
+    <td>
+    <% if(showEdit) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-inventario-edit',{id:<%= inventario.id %>}); return false" >Edit</a> |
+	<% } %> 
+	<% if(showDelete) {%>
+    <a onclick="Backbone.trigger('<%= componentId %>-inventario-delete',{id:<%= inventario.id %>}); return false" >Delete</a> 
+	<% } %>    
+	</td>
+    </tr>
+    <% }); %>
+    </tbody>
+    </table>
+    </div>
+</script>
+
+<script type="text/template" id="inventario">
+    <div class="form-group">
+    <form role="form" id="<%= componentId %>-inventarioForm">
+    <% if(inventario.id) {%>
+    <input type="hidden" name="id" value="<%= inventario.id %>"/>
+    <% }%>
+    </form>
+    </div>
+</script> 

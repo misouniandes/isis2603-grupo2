@@ -1,0 +1,9 @@
+{
+    "displayName" : "Necesidad",
+    "name" : "necesidad",
+    "templateName" : "necesidad",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/necesidad.service.subsystem.web/webresources/Necesidad",
+    "el" : "#main"
+}

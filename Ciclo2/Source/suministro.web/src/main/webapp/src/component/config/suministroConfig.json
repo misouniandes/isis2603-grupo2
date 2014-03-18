@@ -1,0 +1,9 @@
+{
+    "displayName" : "Suministro",
+    "name" : "suministro",
+    "templateName" : "suministro",
+    "url" : "user.html",
+    "server": "localhost:8080",
+    "context": "/suministro.service.subsystem.web/webresources/Suministro",
+    "el" : "#main"
+}
